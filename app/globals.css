@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@layer base {
+  @font-face {
+    font-family: "Fixture";
+    src: url("/fonts/Fixture-CondensedExtraBold.woff2") format("woff2"),
+      url("/fonts/Fixture-CondensedExtraBold.woff") format("woff"),
+      url("/fonts/Fixture-CondensedExtraBold.otf") format("opentype");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Ogg";
+    src: url("/fonts/Ogg-Italic.woff2") format("woff2"),
+      url("/fonts/Ogg-Italic.woff") format("woff"),
+      url("/fonts/Ogg-Italic.otf") format("opentype");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  html,
+  body {
+    height: 100%;
+    overflow: hidden;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+}
+
+/* Marquee */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 80s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  mix-blend-mode: hard-light;
+  opacity: 0.85;
+}
+
+/* Nav responsive */
+.site-header {
+  padding: 20px 60px;
+}
+.nav-desktop { display: none; }
+.nav-hamburger { display: flex; }
+
+@media (min-width: 1024px) {
+  .nav-desktop { display: flex; }
+  .nav-hamburger { display: none; }
+}
