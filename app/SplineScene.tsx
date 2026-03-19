@@ -6,7 +6,7 @@ import type { Application } from "@splinetool/runtime";
 // Lazy-load the 3.8MB Spline runtime — doesn't block initial page render
 const Spline = lazy(() => import("@splinetool/react-spline"));
 
-const SPLINE_URL = "https://prod.spline.design/1aIQvL19duA2ZeNn/scene.splinecode?v=16";
+const SPLINE_URL = "https://prod.spline.design/1aIQvL19duA2ZeNn/scene.splinecode?v=1773896128";
 const MOBILE_BREAKPOINT = 768;
 
 function LoadingMonogram({ visible }: { visible: boolean }) {
@@ -73,13 +73,23 @@ export default function SplineScene() {
     } catch {}
   }, []);
 
+  // Block click/drag orbit while allowing hover orbit through
+  const blockClickOrbit = useCallback(() => {
+    const canvas = document.querySelector("canvas");
+    if (!canvas) return;
+    canvas.addEventListener("mousedown", (e) => e.stopPropagation(), true);
+    canvas.addEventListener("pointerdown", (e) => e.stopPropagation(), true);
+    canvas.style.cursor = "default";
+  }, []);
+
   const handleSplineLoad = useCallback((spline: Application) => {
     splineApp.current = spline;
     switchCamera(spline);
     setTimeout(() => switchCamera(spline), 500);
     setTimeout(() => switchCamera(spline), 1500);
+    blockClickOrbit();
     setLoaded(true);
-  }, [switchCamera]);
+  }, [switchCamera, blockClickOrbit]);
 
   if (!mounted) return null;
 
@@ -90,6 +100,7 @@ export default function SplineScene() {
         style={{
           width: "100%",
           height: "100%",
+          cursor: "default",
           opacity: loaded ? 1 : 0,
           transition: "opacity 0.6s ease-in",
         }}

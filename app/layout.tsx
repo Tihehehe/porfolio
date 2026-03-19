@@ -26,7 +26,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://prod.spline.design" />
         <link
           rel="preload"
-          href="https://prod.spline.design/1aIQvL19duA2ZeNn/scene.splinecode?v=16"
+          href="https://prod.spline.design/1aIQvL19duA2ZeNn/scene.splinecode?v=1773896128"
           as="fetch"
           crossOrigin="anonymous"
         />
