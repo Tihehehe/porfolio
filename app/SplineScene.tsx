@@ -9,6 +9,7 @@ const MOBILE_BREAKPOINT = 768;
 
 export default function SplineScene() {
   const [mounted, setMounted] = useState(false);
+  const [loaded, setLoaded] = useState(false);
   const splineApp = useRef<Application | null>(null);
 
   // Only render Spline on the client (needs canvas/WebGL)
@@ -39,15 +40,25 @@ export default function SplineScene() {
     switchCamera(spline);
     setTimeout(() => switchCamera(spline), 500);
     setTimeout(() => switchCamera(spline), 1500);
+    setLoaded(true);
   }, [switchCamera]);
 
   if (!mounted) return null;
 
   return (
-    <Spline
-      scene={SPLINE_URL}
-      onLoad={handleSplineLoad}
-      style={{ width: "100%", height: "100%" }}
-    />
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        opacity: loaded ? 1 : 0,
+        transition: "opacity 0.6s ease-in",
+      }}
+    >
+      <Spline
+        scene={SPLINE_URL}
+        onLoad={handleSplineLoad}
+        style={{ width: "100%", height: "100%" }}
+      />
+    </div>
   );
 }
