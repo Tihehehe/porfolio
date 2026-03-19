@@ -6,7 +6,7 @@ import type { Application } from "@splinetool/runtime";
 // Lazy-load the 3.8MB Spline runtime — doesn't block initial page render
 const Spline = lazy(() => import("@splinetool/react-spline"));
 
-const SPLINE_URL = "https://prod.spline.design/1aIQvL19duA2ZeNn/scene.splinecode?v=15";
+const SPLINE_URL = "https://prod.spline.design/1aIQvL19duA2ZeNn/scene.splinecode?v=16";
 const MOBILE_BREAKPOINT = 768;
 
 function LoadingMonogram({ visible }: { visible: boolean }) {
