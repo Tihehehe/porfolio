@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Spline from "@splinetool/react-spline";
 import type { Application } from "@splinetool/runtime";
 
@@ -8,7 +8,13 @@ const SPLINE_URL = "https://prod.spline.design/1aIQvL19duA2ZeNn/scene.splinecode
 const MOBILE_BREAKPOINT = 768;
 
 export default function SplineScene() {
+  const [mounted, setMounted] = useState(false);
   const splineApp = useRef<Application | null>(null);
+
+  // Only render Spline on the client (needs canvas/WebGL)
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const switchCamera = useCallback((spline: Application) => {
     const isMobile = window.innerWidth < MOBILE_BREAKPOINT;
@@ -35,5 +41,13 @@ export default function SplineScene() {
     setTimeout(() => switchCamera(spline), 1500);
   }, [switchCamera]);
 
-  return <Spline scene={SPLINE_URL} onLoad={handleSplineLoad} />;
+  if (!mounted) return null;
+
+  return (
+    <Spline
+      scene={SPLINE_URL}
+      onLoad={handleSplineLoad}
+      style={{ width: "100%", height: "100%" }}
+    />
+  );
 }
