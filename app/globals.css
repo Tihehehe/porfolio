@@ -45,9 +45,28 @@
   opacity: 0.85;
 }
 
+/* Marquee responsive */
+:root {
+  --marquee-h: 27vh;
+  --coming-soon-size: min(calc(var(--marquee-h) / 4.2), calc((100vw - 20px) / 8));
+}
+
+@media (min-width: 768px) {
+  :root {
+    --marquee-h: 48vh;
+    --coming-soon-size: calc(47vh / 5);
+  }
+}
+
 /* Nav responsive */
 .site-header {
-  padding: 20px 60px;
+  padding: 20px 40px;
+}
+
+@media (min-width: 768px) {
+  .site-header {
+    padding: 20px 60px;
+  }
 }
 .nav-desktop { display: none; }
 .nav-hamburger { display: flex; }

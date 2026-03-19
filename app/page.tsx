@@ -14,7 +14,7 @@ export default function Home() {
       </div>
 
       {/* Nav */}
-      <header className="site-header absolute top-0 left-0 right-0 flex items-start justify-between" style={{ padding: "20px 60px", fontFamily: "var(--font-fraunces)", fontSize: "10.5pt", lineHeight: 1.2 }}>
+      <header className="site-header absolute top-0 left-0 right-0 flex items-center justify-between" style={{ fontFamily: "var(--font-fraunces)", fontSize: "10.5pt", lineHeight: 1.2 }}>
         {/* TL monogram */}
         <img src="/logo.svg" alt="TL" className="w-8 h-8" style={{ width: "34.56px", height: "34.56px" }} />
 
@@ -49,12 +49,12 @@ export default function Home() {
       </header>
 
       {/* UNDER CONSTRUCTION marquee + Coming Soon */}
-      <div className="absolute left-0 right-0 overflow-hidden pointer-events-none flex flex-col justify-end" style={{ bottom: "0px", height: "48vh" }}>
+      <div className="absolute left-0 right-0 overflow-hidden pointer-events-none flex flex-col justify-end" style={{ bottom: "0px", height: "var(--marquee-h)" }}>
         {/* Coming Soon — centered on the marquee */}
-        <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center pointer-events-none" style={{ zIndex: 1, height: "calc(47vh * 0.85)" }}>
+        <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center pointer-events-none" style={{ zIndex: 1, height: "calc(var(--marquee-h) * 0.85)", padding: "0 10px" }}>
           <p
             className="text-[#FFBEF6]"
-            style={{ fontFamily: "'Ogg', Georgia, serif", fontStyle: "italic", fontSize: "calc(47vh / 5)", letterSpacing: "0.02em", whiteSpace: "nowrap", textShadow: "0 2px 40px rgba(255, 190, 246, 0.3)", transform: "translateY(17%)" }}
+            style={{ fontFamily: "'Ogg', Georgia, serif", fontStyle: "italic", fontSize: "var(--coming-soon-size)", letterSpacing: "0.02em", whiteSpace: "nowrap", textShadow: "0 2px 40px rgba(255, 190, 246, 0.3)", transform: "translateY(17%)" }}
           >
             Coming Soon
           </p>
@@ -63,14 +63,14 @@ export default function Home() {
         <div className="marquee-track select-none">
           <span
             className="text-[#e040fb] uppercase whitespace-nowrap"
-            style={{ fontFamily: "'Fixture', 'Arial Narrow', sans-serif", fontWeight: 800, fontSize: "47vh", lineHeight: 0.85, letterSpacing: "-0.02em", }}
+            style={{ fontFamily: "'Fixture', 'Arial Narrow', sans-serif", fontWeight: 800, fontSize: "var(--marquee-h)", lineHeight: 0.85, letterSpacing: "-0.02em", }}
           >
             {repeats}
           </span>
           {/* Duplicate for seamless loop */}
           <span
             className="text-[#e040fb] uppercase whitespace-nowrap"
-            style={{ fontFamily: "'Fixture', 'Arial Narrow', sans-serif", fontWeight: 800, fontSize: "47vh", lineHeight: 0.85, letterSpacing: "-0.02em", }}
+            style={{ fontFamily: "'Fixture', 'Arial Narrow', sans-serif", fontWeight: 800, fontSize: "var(--marquee-h)", lineHeight: 0.85, letterSpacing: "-0.02em", }}
           >
             {repeats}
           </span>
