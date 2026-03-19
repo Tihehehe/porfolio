@@ -1,8 +1,10 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
-import Spline from "@splinetool/react-spline";
+import { lazy, Suspense, useCallback, useEffect, useRef, useState } from "react";
 import type { Application } from "@splinetool/runtime";
+
+// Lazy-load the 3.8MB Spline runtime — doesn't block initial page render
+const Spline = lazy(() => import("@splinetool/react-spline"));
 
 const SPLINE_URL = "https://prod.spline.design/1aIQvL19duA2ZeNn/scene.splinecode?v=15";
 const MOBILE_BREAKPOINT = 768;
@@ -92,11 +94,13 @@ export default function SplineScene() {
           transition: "opacity 0.6s ease-in",
         }}
       >
-        <Spline
-          scene={SPLINE_URL}
-          onLoad={handleSplineLoad}
-          style={{ width: "100%", height: "100%" }}
-        />
+        <Suspense fallback={null}>
+          <Spline
+            scene={SPLINE_URL}
+            onLoad={handleSplineLoad}
+            style={{ width: "100%", height: "100%" }}
+          />
+        </Suspense>
       </div>
     </>
   );
