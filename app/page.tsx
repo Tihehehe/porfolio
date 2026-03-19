@@ -1,86 +1,16 @@
-"use client";
-
-import { useCallback, useEffect, useRef } from "react";
-import Spline from "@splinetool/react-spline";
-import type { Application } from "@splinetool/runtime";
+import SplineScene from "./SplineScene";
 
 const MARQUEE_TEXT = "UNDER CONSTRUCTION";
 
 // Duplicate enough times for seamless loop (50% trick)
 const repeats = Array(8).fill(`${MARQUEE_TEXT} `).join("");
 
-const SPLINE_URL = "https://prod.spline.design/1aIQvL19duA2ZeNn/scene.splinecode?v=15";
-const MOBILE_BREAKPOINT = 768;
-
 export default function Home() {
-  const splineApp = useRef<Application | null>(null);
-
-  const switchCamera = useCallback((spline: Application) => {
-    const isMobile = window.innerWidth < MOBILE_BREAKPOINT;
-
-    // Debug: log all scene objects so we can verify the camera name
-    try {
-      const allObjects = spline.getAllObjects();
-      console.log("[Spline] All objects:", allObjects.map(o => `"${o.name}"`).join(", "));
-      console.log("[Spline] Events:", JSON.stringify(spline.getSplineEvents()));
-    } catch (e) {
-      console.warn("[Spline] debug failed:", e);
-    }
-
-    if (!isMobile) {
-      console.log("[Spline] Desktop viewport, skipping camera switch");
-      return;
-    }
-
-    console.log("[Spline] Mobile viewport detected, switching camera...");
-
-    // Method 1: emitEvent on Application (triggers Mouse Down → Switch Camera action)
-    try {
-      spline.emitEvent("mouseDown", "Camera mobile");
-      console.log("[Spline] Method 1: emitEvent mouseDown on 'Camera mobile'");
-    } catch (e) {
-      console.warn("[Spline] Method 1 failed:", e);
-    }
-
-    // Method 2: Find the object and emit directly on it
-    try {
-      const cam = spline.findObjectByName("Camera mobile");
-      if (cam) {
-        cam.emitEvent("mouseDown");
-        console.log("[Spline] Method 2: direct emitEvent on object, uuid:", cam.uuid);
-      } else {
-        console.warn("[Spline] Method 2: 'Camera mobile' not found by name");
-      }
-    } catch (e) {
-      console.warn("[Spline] Method 2 failed:", e);
-    }
-
-    // Method 3: Try 'start' event type as well
-    try {
-      spline.emitEvent("start", "Camera mobile");
-      console.log("[Spline] Method 3: emitEvent start on 'Camera mobile'");
-    } catch (e) {
-      console.warn("[Spline] Method 3 failed:", e);
-    }
-  }, []);
-
-  const handleSplineLoad = useCallback((spline: Application) => {
-    console.log("[Spline] onLoad fired!");
-    splineApp.current = spline;
-
-    // Try immediately
-    switchCamera(spline);
-
-    // Retry after delays in case scene isn't fully initialized
-    setTimeout(() => switchCamera(spline), 500);
-    setTimeout(() => switchCamera(spline), 1500);
-  }, [switchCamera]);
-
   return (
     <main className="relative w-screen h-screen overflow-hidden">
       {/* Spline 3D background */}
       <div className="absolute inset-0">
-        <Spline scene={SPLINE_URL} onLoad={handleSplineLoad} />
+        <SplineScene />
       </div>
 
       {/* Nav */}
