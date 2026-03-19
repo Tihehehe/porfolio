@@ -22,14 +22,8 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* Start downloading the Spline scene immediately, in parallel with JS */}
-        <link rel="preconnect" href="https://prod.spline.design" />
-        <link rel="dns-prefetch" href="https://prod.spline.design" />
-        <link
-          rel="preload"
-          href="https://prod.spline.design/1aIQvL19duA2ZeNn/scene.splinecode?v=1773896128"
-          as="fetch"
-          crossOrigin="anonymous"
-        />
+        <link rel="preconnect" href="https://my.spline.design" />
+        <link rel="dns-prefetch" href="https://my.spline.design" />
       </head>
       <body className={fraunces.variable}>{children}</body>
     </html>
