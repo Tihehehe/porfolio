@@ -1,4 +1,5 @@
 import SplineScene from "./SplineScene";
+import MobileMenu from "./MobileMenu";
 
 const MARQUEE_TEXT = "UNDER CONSTRUCTION";
 
@@ -16,7 +17,7 @@ export default function Home() {
       {/* Nav */}
       <header className="site-header absolute top-0 left-0 right-0 flex items-center justify-between" style={{ fontFamily: "var(--font-fraunces)", fontSize: "10.5pt", lineHeight: 1.2 }}>
         {/* TL monogram */}
-        <img src="/logo.svg" alt="TL" className="w-8 h-8" style={{ width: "34.56px", height: "34.56px" }} />
+        <img src="/logo.svg" alt="TL" className="w-8 h-8" style={{ width: "40px", height: "40px", position: "relative", zIndex: 51 }} />
 
         {/* Desktop nav items */}
         <div className="nav-desktop flex items-start justify-between text-[#FFBEF6] text-left" style={{ maxWidth: "60%", width: "100%" }}>
@@ -39,13 +40,17 @@ export default function Home() {
             >
               LinkedIn
             </a>
+            <a
+              href="mailto:thaoledesign@gmail.com"
+              className="block hover:opacity-60 transition-opacity"
+            >
+              Email
+            </a>
           </div>
         </div>
 
         {/* Hamburger menu — visible below lg */}
-        <button className="nav-hamburger" aria-label="Menu">
-          <img src="/ham.svg" alt="" style={{ width: "32px", height: "auto" }} />
-        </button>
+        <MobileMenu />
       </header>
 
       {/* UNDER CONSTRUCTION marquee + Coming Soon */}

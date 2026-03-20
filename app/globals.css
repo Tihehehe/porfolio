@@ -60,7 +60,7 @@
 
 /* Nav responsive */
 .site-header {
-  padding: 20px 40px;
+  padding: 24px 30px;
 }
 
 @media (min-width: 768px) {
@@ -71,7 +71,7 @@
 .nav-desktop { display: none; }
 .nav-hamburger { display: flex; }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .nav-desktop { display: flex; }
   .nav-hamburger { display: none; }
 }
