@@ -54,7 +54,7 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center pointer-events-none" style={{ zIndex: 1, height: "calc(var(--marquee-h) * 0.85)", padding: "0 10px" }}>
           <p
             className="text-[#FFBEF6]"
-            style={{ fontFamily: "'Ogg', Georgia, serif", fontStyle: "italic", fontSize: "var(--coming-soon-size)", letterSpacing: "0.02em", whiteSpace: "nowrap", textShadow: "0 2px 40px rgba(255, 190, 246, 0.3)", transform: "translateY(17%)" }}
+            style={{ fontFamily: "'Ogg', Georgia, serif", fontStyle: "italic", fontSize: "var(--coming-soon-size)", letterSpacing: "0.02em", whiteSpace: "nowrap", textShadow: "0 2px 40px rgba(255, 190, 246, 0.3)", transform: "translateY(19%)" }}
           >
             Coming Soon
           </p>
