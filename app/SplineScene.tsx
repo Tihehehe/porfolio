@@ -52,6 +52,7 @@ export default function SplineScene() {
         frameBorder="0"
         allow="autoplay"
         onLoad={() => setLoaded(true)}
+        className="spline-iframe"
         style={{
           width: "100%",
           height: "100%",

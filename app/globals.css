@@ -75,3 +75,14 @@
   .nav-desktop { display: flex; }
   .nav-hamburger { display: none; }
 }
+
+/* Disable Spline interaction on mobile */
+.spline-iframe {
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .spline-iframe {
+    pointer-events: auto;
+  }
+}
