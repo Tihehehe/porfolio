@@ -47,7 +47,7 @@
 
 /* Marquee responsive */
 :root {
-  --marquee-h: 27vh;
+  --marquee-h: 27dvh;
   --coming-soon-size: min(calc(var(--marquee-h) / 4.2), calc((100vw - 20px) / 8));
 }
 
