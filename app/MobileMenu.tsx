@@ -30,7 +30,7 @@ export default function MobileMenu() {
               transformBox: "fill-box",
               transformOrigin: "center",
               willChange: "transform",
-              transition: "transform 0.55s cubic-bezier(0.23, 1, 0.32, 1)",
+              transition: "transform 0.3s ease",
               transform: open
                 ? "rotate(-45deg)"
                 : "translate(0.35px, -9.27px) scaleX(1.143)",
@@ -43,7 +43,7 @@ export default function MobileMenu() {
               transformBox: "fill-box",
               transformOrigin: "center",
               willChange: "transform",
-              transition: "transform 0.55s cubic-bezier(0.23, 1, 0.32, 1) 0.05s",
+              transition: "transform 0.3s ease",
               transform: open
                 ? "rotate(45deg)"
                 : "translate(5.85px, 0.73px) scaleX(0.75)",
