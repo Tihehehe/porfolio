@@ -8,7 +8,7 @@ const repeats = Array(8).fill(`${MARQUEE_TEXT} `).join("");
 
 export default function Home() {
   return (
-    <main className="relative w-screen overflow-hidden" style={{ height: "100dvh" }}>
+    <main className="relative w-screen overflow-hidden" style={{ height: "100svh" }}>
       {/* Spline 3D background */}
       <div className="absolute inset-0">
         <SplineScene />
