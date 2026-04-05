@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 const SPLINE_URL =
-  "https://my.spline.design/roomrelaxingcopy-3f9ef8b64f003da9703b4edfab721eff/";
+  "https://my.spline.design/thaoledesignlandinglaunch-pWqAxmYOTILPTSG7sQXVN4Zk/";
 
 function LoadingMonogram({ visible }: { visible: boolean }) {
   return (
