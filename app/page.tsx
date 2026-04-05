@@ -1,5 +1,6 @@
 import SplineScene from "./SplineScene";
 import MobileMenu from "./MobileMenu";
+import MarqueeTrack from "./MarqueeTrack";
 
 const MARQUEE_TEXT = "UNDER CONSTRUCTION";
 
@@ -65,7 +66,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="marquee-track select-none">
+        <MarqueeTrack>
           <span
             className="text-[#e040fb] uppercase whitespace-nowrap"
             style={{ fontFamily: "'Fixture', 'Arial Narrow', sans-serif", fontWeight: 800, fontSize: "var(--marquee-h)", lineHeight: 0.85, letterSpacing: "-0.02em", }}
@@ -79,7 +80,7 @@ export default function Home() {
           >
             {repeats}
           </span>
-        </div>
+        </MarqueeTrack>
       </div>
     </main>
   );
